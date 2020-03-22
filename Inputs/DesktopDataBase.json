@@ -1,0 +1,20 @@
+{
+    "USERS": [
+        "SELECT USER",
+        "Prajinkya Pimpalghare",
+        "BatMan Knight",
+        "All Might Hero"
+    ],
+    "MACHINES": {
+        "xxxx.xxxx.xxxx.xxxx": [
+            "DOMAIN0000",
+            "Prajinkya Pimpalghare",
+            "All Might Hero"
+        ],
+        "yyyy.yyyy.yyyy.yyyy": [
+            "DOMAIN1111",
+            "All Might Hero",
+            "BatMan Knight"
+        ]
+    }
+}
