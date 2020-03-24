@@ -68,6 +68,7 @@ class GUIFrame(Frame, object):
         else:
             self.database["MACHINES"][self.machine_ip] = [self.machine_name, user, "--------------------"]
         self.save_file(self.database_file, self.database)
+        self.master.quit()
         exit()
 
     def get_json_data(self, input_file):
@@ -103,6 +104,7 @@ class GUIFrame(Frame, object):
 class PopUpWindow(object):
     def __init__(self, master, users):
         self.root = Toplevel(master)
+        self.root.attributes('-topmost', True)
         self.root.config(highlightbackground="green", highlightcolor="green", highlightthickness=1)
         self.root.resizable(width=False, height=False)
         self.root.geometry("400x135+300+300")
@@ -190,7 +192,7 @@ if __name__ == '__main__':
     PARSER.add_argument('-m', '--manual_user', help='Provide True For Updating Quiet Period Data', required=False)
     ARGS = PARSER.parse_args()
     if ARGS.database:
-        DATABASE_FILE = ARGS["database"]
+        DATABASE_FILE = ARGS.database
     else:
         DATABASE_FILE = "DesktopDataBase.json"
         if not os.path.exists(DATABASE_FILE):
@@ -199,6 +201,7 @@ if __name__ == '__main__':
         QuietPeriodUpdate(DATABASE_FILE)
         exit()
     ROOT = Tk()
+    ROOT.attributes('-topmost', True)
     ROOT.config(highlightbackground="green", highlightcolor="green", highlightthickness=1)
     ROOT.resizable(width=False, height=False)
     ROOT.geometry("400x135+300+300")
